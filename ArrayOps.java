@@ -65,14 +65,22 @@ public class ArrayOps {
     public static boolean isSorted(int[] array) {
         // Write your code here:
         boolean sotred = false;
+        int min = array[0];
         for (int i = 0; i < array.length; i++) {
-            int min = array[0];
-            if (array[i + 1] < min) {
-                return sotred;
-            } else {
-                sotred = true;
-                break;
+            if (min > array[i]) {
+                sotred = false;
+            } 
+            min = array[i];
+        }if(sotred == false){
+            sotred = true;
+            int max = array[0];
+            for(int i = 0; i<array.length; i++){
+                if(array[i]>max){
+                    sotred= false;
+                }
+                max = array[i];
             }
+
         }
 
         return sotred;
