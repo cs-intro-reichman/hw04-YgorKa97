@@ -25,13 +25,19 @@ public class ArrayOps {
         int max = array[0];
         int secondMax = array[0];
         for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array.length; j++) {
-                if (array[i] > max) {
-                    max = array[i];
-                }
-                if (array[j] > secondMax && array[j] < max) {
-                    secondMax = array[j];
-                }
+            if (array[i] > max) {
+                max = array[i];
+            }
+        }
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == max) {
+                array[i] = 0;
+                i = array.length;
+            }
+        }
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > secondMax) {
+                secondMax = array[i];
             }
         }
 
