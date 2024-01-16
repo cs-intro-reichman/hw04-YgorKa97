@@ -47,25 +47,18 @@ public class ArrayOps {
     public static boolean containsTheSameElements(int[] array1, int[] array2) {
        // Write your code here:
         boolean isEqual = true;
-        if (array1.length != array2.length) {
+        boolean isEqual = true;
+        for (int i = 0; i < array1.length; i++) {
             isEqual = false;
-        } else {
-            for (int i = 0; i < array1.length; i++) {
-                boolean foundElement = false;
-                for (int j = 0; j < array2.length; j++) {
-                    if (array1[i] == array2[j]) {
-                        foundElement = true;
-                        break;
-                    }
+            for (int j = 0; j < array2.length; j++) {
+                if (array1[i] == array2[j]) {
+                    isEqual = true;
                 }
-                if (!foundElement) {
-                    isEqual = false;
-                    break;
-                }
-
+            }
+            if (isEqual == false) {
+                return isEqual;
             }
         }
-
         return isEqual;
     }
 
