@@ -64,26 +64,30 @@ public class ArrayOps {
 
     public static boolean isSorted(int[] array) {
         // Write your code here:
-        boolean sotred = false;
-        int min = array[0];
-        for (int i = 0; i < array.length; i++) {
-            if (min > array[i]) {
-                sotred = false;
-            } 
-            min = array[i];
-        }if(sotred == false){
-            sotred = true;
-            int max = array[0];
-            for(int i = 0; i<array.length; i++){
-                if(array[i]>max){
-                    sotred= false;
+        boolean sorted = true; // Initialize to true
+        int order = 0; 
+        for (int i = 0; i < array.length - 1; i++) { // Loop until the second last element
+            if (i == 0) { // If it is the first iteration
+                // Store the order of the first two elements
+                if (array[i] < array[i + 1]) {
+                    order = -1;
+                } else if (array[i] > array[i + 1]) {
+                    order = 1;
+                } else {
+                    order = 0;
                 }
-                max = array[i];
+            } else { // If it is not the first iteration
+                // Compare the current element with the next one and check if it matches the
+                // order
+                if ((array[i] < array[i + 1] && order != -1) || (array[i] > array[i + 1] && order != 1)
+                        || (array[i] == array[i + 1] && order != 0)) {
+                    sorted = false; 
+                    break; 
+                }
             }
-
         }
 
-        return sotred;
+        return sorted; 
     }
 
 }
