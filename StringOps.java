@@ -42,11 +42,16 @@ public class StringOps {
                 } else {
                     str += (char) (ch + 32);
                 }
+
+            }
+            if (ch == ' ') {
+                str += ch;
             }
         }
         return str;
 
     }
+
 
     /* check how to remove bug with last example!!!!! */
     public static String camelCase(String string) {
